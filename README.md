@@ -157,3 +157,34 @@ print(string.isupper())
 Procesar el archivo y extraer:
 * Cantidad de vocales
 * Cantidad de consonantes
+
+**Código cantidad de vocales**
+
+```
+def cantidadVocales(archivo)->int:#Creando función para contar la cantidad de vocales
+    vocales:int=0#Declarando variable que servirá para contar las vocales, se inicializa en 0
+    for i in archivo:#Para cada letra que se encuentra en el archivo:
+        if i in "aeiou" or i in "AEIOU":#Si la letra es una vocal mayúscula o minúscula...
+            vocales+=1#...entonces se le suma una unidad al contador de las vocales
+    return vocales#La función retorna el número final de las vocales contadas
+
+if __name__=="__main__":#Función main
+    with open('mbox-short.txt',"r") as file:#Se abre el archivo y se nombra como file
+        conteoVocales=cantidadVocales(file.read())#Se llama a la función cantidadVocales, para aplicar la función en el file
+        print("El archivo tiene {} vocales".format(conteoVocales))#Se imprime la cantidad de vocales que hay en el archivo
+```
+
+**Código cantidad de consonantes**
+
+```
+def consonantes(archivo):#Creando función para contar la cantidad de consonantes
+    cons:int=0#Declarando variable que servirá para contar las consonantes, se inicializa en 0
+    for i in archivo:#Para cada letra que se encuentra en el archivo:
+        if i in "bcdfghjklmnñpqrstvwxyz" or i in "BCDFGHJKLMNÑPQRSTVWXYZ":#Si la letra es una consonantes mayúscula o minúscula...
+            cons+=1#...entonces se le suma una unidad al contador de las consonantes
+    return cons#La función retorna el número final de las consonantes contadas
+if __name__=="__main__":#Función main
+    with open("mbox-short.txt","r") as file:#Se abre el archivo y se nombra como file
+        conteoConsonantes=consonantes(file.read())#SE llama a la función consonantes, para aplicar la función en el file
+        print("El archivo tiene {} consonantes.".format(conteoConsonantes))#Se imprime la cantidad de consonantes que hay en el archivo
+```
